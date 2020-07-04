@@ -1,0 +1,2143 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={Cambio Estructural Modelo Ahorro - Ingreso},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+
+\title{Cambio Estructural Modelo Ahorro - Ingreso}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+\KeywordTok{setwd}\NormalTok{(}\StringTok{"c:/Rprograming"}\NormalTok{)}
+\NormalTok{E1<-}\KeywordTok{read.csv}\NormalTok{(}\StringTok{"Datos_Ejem2_Ingreso_Ahorro.csv"}\NormalTok{,}\DataTypeTok{header =}\NormalTok{ T,}\DataTypeTok{sep =} \StringTok{";"}\NormalTok{,}\DataTypeTok{dec =} \StringTok{","}\NormalTok{)}
+\KeywordTok{head}\NormalTok{(E1) }\CommentTok{# Muestra algunas filas de los datos con encabezado}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   date    Yt     Xt
+## 1 1970  61.0  727.7
+## 2 1971  68.6  790.2
+## 3 1972  63.6  855.3
+## 4 1973  89.6  965.0
+## 5 1974  97.6 1054.2
+## 6 1975 104.4 1159.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{#install.packages("readxl")}
+\KeywordTok{library}\NormalTok{(readxl) }\CommentTok{#Carga el paquete}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'readxl' was built under R version 4.0.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Datos <-}\StringTok{ }\KeywordTok{read_excel}\NormalTok{(}\StringTok{"Datos_Ejem2_Ingreso_Ahorro.xls"}\NormalTok{)}
+\NormalTok{Datos=}\KeywordTok{data.frame}\NormalTok{(Datos) }\CommentTok{# Aqui se estable que Tiempo es una hoja de Excel}
+\KeywordTok{attach}\NormalTok{(Datos)}
+\KeywordTok{head}\NormalTok{(Datos)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   date    Yt     Xt
+## 1 1970  61.0  727.7
+## 2 1971  68.6  790.2
+## 3 1972  63.6  855.3
+## 4 1973  89.6  965.0
+## 5 1974  97.6 1054.2
+## 6 1975 104.4 1159.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(normtest)}
+\end{Highlighting}
+\end{Shaded}
+
+ESTIMACIÓN DEL MODELO RESTRINGIDO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1=}\KeywordTok{lm}\NormalTok{(Yt}\OperatorTok{~}\NormalTok{Xt)}
+\KeywordTok{summary}\NormalTok{(eq1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Yt ~ Xt)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -62.192 -20.652  -9.459  18.710  67.306 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 62.689354  12.729576   4.925 5.03e-05 ***
+## Xt           0.037617   0.004226   8.901 4.54e-09 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 31.05 on 24 degrees of freedom
+## Multiple R-squared:  0.7675, Adjusted R-squared:  0.7578 
+## F-statistic: 79.23 on 1 and 24 DF,  p-value: 4.538e-09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{et=}\KeywordTok{resid}\NormalTok{(eq1)}
+\KeywordTok{summary}\NormalTok{(et)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+## -62.192 -20.652  -9.459   0.000  18.710  67.306
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Suma de cuadrados de los erroes del modelo de la ecuación (1)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Suma de cuadrados de los erroes del modelo de la ecuación (1)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS_R=}\KeywordTok{deviance}\NormalTok{(eq1))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 23133.88
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g1_hist=}\KeywordTok{hist}\NormalTok{(et, }\KeywordTok{seq}\NormalTok{(}\OperatorTok{-}\FloatTok{66.0}\NormalTok{, }\DecValTok{74}\NormalTok{, }\DataTypeTok{by=}\DecValTok{20}\NormalTok{), }\DataTypeTok{prob=}\OtherTok{TRUE}\NormalTok{)}
+\KeywordTok{curve}\NormalTok{(}\KeywordTok{dnorm}\NormalTok{(x,}\DataTypeTok{mean =} \DecValTok{0}\NormalTok{,}\DataTypeTok{sd=}\DecValTok{31}\NormalTok{),}\DataTypeTok{col=}\DecValTok{1}\NormalTok{,}\DataTypeTok{lty=}\DecValTok{2}\NormalTok{,}\DataTypeTok{lwd=}\DecValTok{3}\NormalTok{,}\DataTypeTok{add =} \OtherTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{CambiosEstructurales-IngresoAhorro_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g2_box=}\KeywordTok{boxplot}\NormalTok{(et)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{CambiosEstructurales-IngresoAhorro_files/figure-latex/unnamed-chunk-2-2.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{jb.norm.test}\NormalTok{(et)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##  Jarque-Bera test for normality
+## 
+## data:  et
+## JB = 1.1732, p-value = 0.373
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g3_qq <-}\StringTok{ }\KeywordTok{qqnorm}\NormalTok{(et,}\DataTypeTok{col=}\StringTok{"black"}\NormalTok{)}
+\KeywordTok{qqline}\NormalTok{(et,}\DataTypeTok{col=}\StringTok{"red"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{CambiosEstructurales-IngresoAhorro_files/figure-latex/unnamed-chunk-2-3.pdf}
+FORMA MATRICIAL DEL MODELO RESTRINGIDO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X=}\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{,Datos[,}\DecValTok{3}\NormalTok{])}
+\NormalTok{y=Datos[,}\DecValTok{2}\NormalTok{]}
+\StringTok{"El vector Xty"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El vector Xty"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{Xty=}\KeywordTok{t}\NormalTok{(X)}\OperatorTok{%*%}\NormalTok{y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,]     4217
+## [2,] 13184664
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La matriz XtX es:"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La matriz XtX es:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XtX=}\KeywordTok{t}\NormalTok{(X)}\OperatorTok{%*%}\NormalTok{X)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]        [,2]
+## [1,]    26.0     68773.6
+## [2,] 68773.6 235883296.7
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"la matriz XtX INVERSA ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "la matriz XtX INVERSA ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XtX_inv=}\KeywordTok{solve}\NormalTok{(XtX))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               [,1]          [,2]
+## [1,]  1.681089e-01 -4.901345e-05
+## [2,] -4.901345e-05  1.852964e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL ESTIMADOR b DE OLS ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL ESTIMADOR b DE OLS ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{b=}\NormalTok{XtX_inv}\OperatorTok{%*%}\NormalTok{Xty)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##             [,1]
+## [1,] 62.68935410
+## [2,]  0.03761729
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL yt_est ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL yt_est ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ye=X}\OperatorTok{%*%}\NormalTok{b}
+\StringTok{"LOS ERROES DE ESTIMACIÓN SON"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LOS ERROES DE ESTIMACIÓN SON"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{et=y}\OperatorTok{-}\NormalTok{ye}
+\StringTok{"SUMAS DE CUADRADOS"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMAS DE CUADRADOS"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMAS DE CUADRADOS TOTALES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMAS DE CUADRADOS TOTALES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS=}\KeywordTok{sum}\NormalTok{((y}\OperatorTok{-}\KeywordTok{mean}\NormalTok{(y))}\OperatorTok{^}\DecValTok{2}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 99501.32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS_A=}\KeywordTok{t}\NormalTok{(y)}\OperatorTok{%*%}\NormalTok{y}\DecValTok{-26}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 99501.32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMA DE CUAADRADOS EXPLICADA"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMA DE CUAADRADOS EXPLICADA"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{ESS=}\KeywordTok{t}\NormalTok{(b)}\OperatorTok{%*%}\NormalTok{XtX}\OperatorTok{%*%}\NormalTok{b}\DecValTok{-26}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 76367.44
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMA DE CUADRADOS DE LOS ERROES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMA DE CUADRADOS DE LOS ERROES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS=}\KeywordTok{t}\NormalTok{(et)}\OperatorTok{%*%}\NormalTok{et)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 23133.88
+\end{verbatim}
+
+ESTIMACIÓN DEL MODELO NO RESTRINGIDO CON EL COMNADO lm, PARA ELLO SE
+DEFINESN LAS VARIABLES D1, D2, x1t y x2t. SE ESTIMA EL MODELO POR
+SUBMUESTRAS
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"1. MODELO CON LAS PRIMERAS 15 OBSERVACIONES DESDE 1970 HASTA 1984"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "1. MODELO CON LAS PRIMERAS 15 OBSERVACIONES DESDE 1970 HASTA 1984"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA MATRIZ DE DATOS X1"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA MATRIZ DE DATOS X1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X1=}\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{,Datos[}\DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\NormalTok{y1=Datos[}\DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\NormalTok{x1t=}\KeywordTok{cbind}\NormalTok{(X1[}\DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{,}\DecValTok{2}\NormalTok{])}
+\NormalTok{y1t=y1[}\DecValTok{1}\OperatorTok{:}\DecValTok{15}\NormalTok{]}
+\NormalTok{On1=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{15}\NormalTok{,}\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{in1=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{15}\NormalTok{,}\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\StringTok{"Estimación del modelo 1"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Estimación del modelo 1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_m1=}\KeywordTok{lm}\NormalTok{(y1t}\OperatorTok{~}\NormalTok{x1t)}
+\KeywordTok{summary}\NormalTok{(eq1_m1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y1t ~ x1t)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -34.248  -9.451   3.276  11.059  23.134 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)  3.318321  10.710690    0.31    0.762    
+## x1t          0.078469   0.006327   12.40 1.41e-08 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 16 on 13 degrees of freedom
+## Multiple R-squared:  0.9221, Adjusted R-squared:  0.9161 
+## F-statistic: 153.8 on 1 and 13 DF,  p-value: 1.406e-08
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Suma de cuadrados de los erroes del modelo 1: 1970 - 1984"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Suma de cuadrados de los erroes del modelo 1: 1970 - 1984"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_}\DecValTok{1}\NormalTok{=}\KeywordTok{deviance}\NormalTok{(eq1_m1)}
+\NormalTok{RSS_}\DecValTok{1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3327.055
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTIMACIÓN EN FORMA MATRICIAL"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTIMACIÓN EN FORMA MATRICIAL"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La matriz X1tX1 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La matriz X1tX1 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X1tX1=}\KeywordTok{t}\NormalTok{(X1)}\OperatorTok{%*%}\NormalTok{X1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]       [,2]
+## [1,]    15.0    23428.7
+## [2,] 23428.7 42986923.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La matriz X1tX1 inversa es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La matriz X1tX1 inversa es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X1tX1_inv=}\KeywordTok{solve}\NormalTok{(X1tX1))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               [,1]          [,2]
+## [1,]  0.4482480056 -2.443038e-04
+## [2,] -0.0002443038  1.564132e-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El vector X1ty1 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El vector X1ty1 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X1ty1=}\KeywordTok{t}\NormalTok{(X1)}\OperatorTok{%*%}\NormalTok{y1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+## [1,]    1888.2
+## [2,] 3450882.1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El estimador OLS con la primera muestra es:"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El estimador OLS con la primera muestra es:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{b1=}\NormalTok{X1tX1_inv}\OperatorTok{%*%}\NormalTok{X1ty1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            [,1]
+## [1,] 3.31832121
+## [2,] 0.07846894
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMAS DE CUADRADOS DEL MODELO 1"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMAS DE CUADRADOS DEL MODELO 1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{et1=y1}\OperatorTok{-}\NormalTok{X1}\OperatorTok{%*%}\NormalTok{b1}
+\StringTok{"El RSS1 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El RSS1 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS1=}\KeywordTok{t}\NormalTok{(et1)}\OperatorTok{%*%}\NormalTok{et1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 3327.055
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El ESS1"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El ESS1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{ESS1=}\KeywordTok{t}\NormalTok{(b1)}\OperatorTok{%*%}\NormalTok{X1tX1}\OperatorTok{%*%}\NormalTok{b1}\DecValTok{-15}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y1)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 39366.09
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El TSS1 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El TSS1 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS1=}\KeywordTok{t}\NormalTok{(y1)}\OperatorTok{%*%}\NormalTok{y1}\DecValTok{-15}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y1)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 42693.14
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El TSS1 prueba es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El TSS1 prueba es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS1p=}\NormalTok{ESS1}\OperatorTok{+}\NormalTok{RSS1)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 42693.14
+\end{verbatim}
+
+ESTIMACIÓN DEL MODELO CON LAS ULTIMAS n2 = 11 OBSERVACIONES
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"2. MODELO CON LAS ULTIMAS 11 OBSERVACIONES DESDE 1985 HASTA 1995"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "2. MODELO CON LAS ULTIMAS 11 OBSERVACIONES DESDE 1985 HASTA 1995"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA MATRIZ DE DATOS X2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA MATRIZ DE DATOS X2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{X2=}\KeywordTok{cbind}\NormalTok{(}\DecValTok{1}\NormalTok{,Datos[}\DecValTok{16}\OperatorTok{:}\DecValTok{26}\NormalTok{,}\DecValTok{3}\NormalTok{])}
+\StringTok{"EL VECTOR y2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL VECTOR y2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{y2=Datos[}\DecValTok{16}\OperatorTok{:}\DecValTok{26}\NormalTok{,}\DecValTok{2}\NormalTok{]}
+\NormalTok{x2t=}\KeywordTok{cbind}\NormalTok{(X2[}\DecValTok{1}\OperatorTok{:}\DecValTok{11}\NormalTok{,}\DecValTok{2}\NormalTok{])}
+\NormalTok{y2t=y2[}\DecValTok{1}\OperatorTok{:}\DecValTok{11}\NormalTok{]}
+\StringTok{"El vector 0 de tamanño n2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El vector 0 de tamanño n2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{On2=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{11}\NormalTok{,}\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\StringTok{"el vector in2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "el vector in2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{in2=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{11}\NormalTok{,}\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\StringTok{"Estimación del modelo 2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Estimación del modelo 2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_m2=}\KeywordTok{lm}\NormalTok{(y2t}\OperatorTok{~}\NormalTok{x2t)}
+\KeywordTok{summary}\NormalTok{(eq1_m2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y2t ~ x2t)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -42.466 -15.541  -4.007  15.164  49.877 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)  
+## (Intercept) 119.32551   47.98623   2.487   0.0346 *
+## x2t           0.02241    0.01146   1.956   0.0822 .
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 28.01 on 9 degrees of freedom
+## Multiple R-squared:  0.2982, Adjusted R-squared:  0.2203 
+## F-statistic: 3.825 on 1 and 9 DF,  p-value: 0.08221
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Suma de cuadrados de los errroes del modelo 2: 1985 - 1995"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Suma de cuadrados de los errroes del modelo 2: 1985 - 1995"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_}\DecValTok{2}\NormalTok{=}\KeywordTok{deviance}\NormalTok{(eq1_m2)}
+\NormalTok{RSS_}\DecValTok{2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 7058.593
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTIMACIÓN EN FORMA MATRICIAL"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTIMACIÓN EN FORMA MATRICIAL"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La matriz X2tX2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La matriz X2tX2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X2tX2=}\KeywordTok{t}\NormalTok{(X2)}\OperatorTok{%*%}\NormalTok{X2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]        [,2]
+## [1,]    11.0     45344.9
+## [2,] 45344.9 192896373.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La matriz X2tX2 inversa es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La matriz X2tX2 inversa es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X2tX2_inv=}\KeywordTok{solve}\NormalTok{(X2tX2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               [,1]          [,2]
+## [1,]  2.9360110708 -6.901795e-04
+## [2,] -0.0006901795  1.674273e-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El vector X2ty2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El vector X2ty2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{X2ty2=}\KeywordTok{t}\NormalTok{(X2)}\OperatorTok{%*%}\NormalTok{y2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+## [1,]    2328.8
+## [2,] 9733782.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El estimador OLS con la segunda muestra es:"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El estimador OLS con la segunda muestra es:"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{b2=}\NormalTok{X2tX2_inv}\OperatorTok{%*%}\NormalTok{X2ty2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              [,1]
+## [1,] 119.32550769
+## [2,]   0.02241089
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMAS DE CUADRADOS DEL MODELO 2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMAS DE CUADRADOS DEL MODELO 2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{et2=y2}\OperatorTok{-}\NormalTok{X2}\OperatorTok{%*%}\NormalTok{b2}
+\StringTok{"El RSS2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El RSS2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS2=}\KeywordTok{t}\NormalTok{(et2)}\OperatorTok{%*%}\NormalTok{et2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 7058.593
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El ESS2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El ESS2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{ESS2=}\KeywordTok{t}\NormalTok{(b2)}\OperatorTok{%*%}\NormalTok{X2tX2}\OperatorTok{%*%}\NormalTok{b2}\DecValTok{-11}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y2)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 2999.796
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El TSS2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El TSS2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS2=}\KeywordTok{t}\NormalTok{(y2)}\OperatorTok{%*%}\NormalTok{y2}\DecValTok{-11}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y2)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 10058.39
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"El TSS2 prueba es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El TSS2 prueba es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS2p=}\NormalTok{ESS2}\OperatorTok{+}\NormalTok{RSS2)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 10058.39
+\end{verbatim}
+
+DEFINICIÓN DE LAS VARIABLES PARA EL MODELO NO RESTRINGIDO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Variables D1 y D2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Variables D1 y D2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La variable D1"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La variable D1"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d1=}\KeywordTok{rbind}\NormalTok{(in1,On2)}
+\NormalTok{d1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]
+##  [1,]    1
+##  [2,]    1
+##  [3,]    1
+##  [4,]    1
+##  [5,]    1
+##  [6,]    1
+##  [7,]    1
+##  [8,]    1
+##  [9,]    1
+## [10,]    1
+## [11,]    1
+## [12,]    1
+## [13,]    1
+## [14,]    1
+## [15,]    1
+## [16,]    0
+## [17,]    0
+## [18,]    0
+## [19,]    0
+## [20,]    0
+## [21,]    0
+## [22,]    0
+## [23,]    0
+## [24,]    0
+## [25,]    0
+## [26,]    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La variable D2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La variable D2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{d2=}\KeywordTok{rbind}\NormalTok{(On1,in2)}
+\NormalTok{d2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]
+##  [1,]    0
+##  [2,]    0
+##  [3,]    0
+##  [4,]    0
+##  [5,]    0
+##  [6,]    0
+##  [7,]    0
+##  [8,]    0
+##  [9,]    0
+## [10,]    0
+## [11,]    0
+## [12,]    0
+## [13,]    0
+## [14,]    0
+## [15,]    0
+## [16,]    1
+## [17,]    1
+## [18,]    1
+## [19,]    1
+## [20,]    1
+## [21,]    1
+## [22,]    1
+## [23,]    1
+## [24,]    1
+## [25,]    1
+## [26,]    1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La variable Xt1 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La variable Xt1 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Xt1=}\KeywordTok{rbind}\NormalTok{(x1t,On2)}
+\StringTok{"La variable Xt2 es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La variable Xt2 es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Xt2=}\KeywordTok{rbind}\NormalTok{(On1,x2t)}
+\StringTok{"Modelo no restringido estimado"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Modelo no restringido estimado"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_mnr=}\KeywordTok{lm}\NormalTok{(Yt}\OperatorTok{~}\NormalTok{d1}\OperatorTok{+}\NormalTok{Xt1}\OperatorTok{+}\NormalTok{d2}\OperatorTok{+}\NormalTok{Xt2}\DecValTok{-1}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(eq1_mnr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Yt ~ d1 + Xt1 + d2 + Xt2 - 1)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -42.466 -12.226   1.928  11.352  49.877 
+## 
+## Coefficients:
+##      Estimate Std. Error t value Pr(>|t|)    
+## d1  3.318e+00  1.455e+01   0.228  0.82166    
+## Xt1 7.847e-02  8.593e-03   9.132 6.14e-09 ***
+## d2  1.193e+02  3.723e+01   3.205  0.00408 ** 
+## Xt2 2.241e-02  8.890e-03   2.521  0.01946 *  
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 21.73 on 22 degrees of freedom
+## Multiple R-squared:  0.9867, Adjusted R-squared:  0.9843 
+## F-statistic: 409.4 on 4 and 22 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La suma de cuadrados de los erroes del Modelo no Restringido es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La suma de cuadrados de los erroes del Modelo no Restringido es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS_NR=}\KeywordTok{deviance}\NormalTok{(eq1_mnr))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10385.65
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Prueba de la ecuación (16)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Prueba de la ecuación (16)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS_NR_16=}\NormalTok{RSS_}\DecValTok{1}\OperatorTok{+}\NormalTok{RSS_}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10385.65
+\end{verbatim}
+
+FORMA MATRICIAL DEL MODELO NO RESTRINGIDO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"CONSTRUCCIÓN DE LA MATRIX XNR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "CONSTRUCCIÓN DE LA MATRIX XNR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{O15=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{15}\NormalTok{,}\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{O11=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow=}\DecValTok{11}\NormalTok{,}\DataTypeTok{ncol=}\DecValTok{2}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{A1=}\KeywordTok{rbind}\NormalTok{(X1,O11)}
+\NormalTok{A2=}\KeywordTok{rbind}\NormalTok{(O15,X2)}
+\StringTok{"MATRIZ XNR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "MATRIZ XNR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XNR=}\KeywordTok{cbind}\NormalTok{(A1,A2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##       [,1]   [,2] [,3]   [,4]
+##  [1,]    1  727.7    0    0.0
+##  [2,]    1  790.2    0    0.0
+##  [3,]    1  855.3    0    0.0
+##  [4,]    1  965.0    0    0.0
+##  [5,]    1 1054.2    0    0.0
+##  [6,]    1 1159.2    0    0.0
+##  [7,]    1 1273.0    0    0.0
+##  [8,]    1 1401.4    0    0.0
+##  [9,]    1 1580.1    0    0.0
+## [10,]    1 1769.5    0    0.0
+## [11,]    1 1973.2    0    0.0
+## [12,]    1 2200.2    0    0.0
+## [13,]    1 2347.3    0    0.0
+## [14,]    1 2522.4    0    0.0
+## [15,]    1 2810.0    0    0.0
+## [16,]    0    0.0    1 3002.0
+## [17,]    0    0.0    1 3187.6
+## [18,]    0    0.0    1 3363.1
+## [19,]    0    0.0    1 3640.8
+## [20,]    0    0.0    1 3894.5
+## [21,]    0    0.0    1 4166.8
+## [22,]    0    0.0    1 4343.7
+## [23,]    0    0.0    1 4613.7
+## [24,]    0    0.0    1 4790.2
+## [25,]    0    0.0    1 5021.7
+## [26,]    0    0.0    1 5320.8
+\end{verbatim}
+
+EATIMADOR OLS DEL MODELO NO RESTRINGIDO EN FORMA MATRICIAL:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA MATRIZ XNRtXNR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA MATRIZ XNRtXNR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XNRtXNR=}\KeywordTok{t}\NormalTok{(XNR)}\OperatorTok{%*%}\NormalTok{XNR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         [,1]       [,2]    [,3]        [,4]
+## [1,]    15.0    23428.7     0.0         0.0
+## [2,] 23428.7 42986923.2     0.0         0.0
+## [3,]     0.0        0.0    11.0     45344.9
+## [4,]     0.0        0.0 45344.9 192896373.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA MATRIZ XNRtXNR inversa"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA MATRIZ XNRtXNR inversa"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XNRtXNR_inv=}\KeywordTok{solve}\NormalTok{(XNRtXNR))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##               [,1]          [,2]          [,3]          [,4]
+## [1,]  0.4482480056 -2.443038e-04  0.0000000000  0.000000e+00
+## [2,] -0.0002443038  1.564132e-07  0.0000000000  0.000000e+00
+## [3,]  0.0000000000  0.000000e+00  2.9360110708 -6.901795e-04
+## [4,]  0.0000000000  0.000000e+00 -0.0006901795  1.674273e-07
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL VECTOR XNRty"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL VECTOR XNRty"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{XNRty=}\KeywordTok{t}\NormalTok{(XNR)}\OperatorTok{%*%}\NormalTok{y)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           [,1]
+## [1,]    1888.2
+## [2,] 3450882.1
+## [3,]    2328.8
+## [4,] 9733782.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL ESTIMADOR OLS DEL MODELO NO RESTRINGIDO ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL ESTIMADOR OLS DEL MODELO NO RESTRINGIDO ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{bnr=}\NormalTok{XNRtXNR_inv}\OperatorTok{%*%}\NormalTok{XNRty)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##              [,1]
+## [1,]   3.31832121
+## [2,]   0.07846894
+## [3,] 119.32550769
+## [4,]   0.02241089
+\end{verbatim}
+
+SUMAS DE CUADRADOS EN EL MODELO NO RESTRINGIDO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{etnr=y}\OperatorTok{-}\NormalTok{XNR}\OperatorTok{%*%}\NormalTok{bnr}
+\StringTok{"SUMA DE CUADRADOS DE ERRROES NR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMA DE CUADRADOS DE ERRROES NR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS_NR_MAT=}\KeywordTok{t}\NormalTok{(etnr)}\OperatorTok{%*%}\NormalTok{etnr)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##          [,1]
+## [1,] 10385.65
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"SUMA DE CUADRADOS EXPLICADA NR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "SUMA DE CUADRADOS EXPLICADA NR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{ESS_NR=}\NormalTok{(}\KeywordTok{t}\NormalTok{(bnr)}\OperatorTok{%*%}\NormalTok{XNRtXNR}\OperatorTok{%*%}\NormalTok{bnr)[}\DecValTok{1}\OperatorTok{:}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\DecValTok{26}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 89115.67
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA SUMA TOTAL CUADRADOS NR ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA SUMA TOTAL CUADRADOS NR ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS_NR=}\NormalTok{(}\KeywordTok{t}\NormalTok{(y)}\OperatorTok{%*%}\NormalTok{y)[}\DecValTok{1}\OperatorTok{:}\DecValTok{1}\NormalTok{]}\OperatorTok{-}\DecValTok{26}\OperatorTok{*}\KeywordTok{mean}\NormalTok{(y)}\OperatorTok{^}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 99501.32
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"PRUEBA DE SUMAS DE CUADRADOS EN EL MODELO NR"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "PRUEBA DE SUMAS DE CUADRADOS EN EL MODELO NR"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{TSS_NR_PRUEBA=}\NormalTok{ESS_NR}\OperatorTok{+}\NormalTok{RSS_NR)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 99501.32
+\end{verbatim}
+
+PRUEBA DE CAMMBIO ESTRUCTUTURAL:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTADÍSTICA F DE LA ECUAIOÓN (20)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTADÍSTICA F DE LA ECUAIOÓN (20)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL VALOR CALCULADO DE LA ESTADÍSTICA ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL VALOR CALCULADO DE LA ESTADÍSTICA ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{FC_20=}\NormalTok{(((RSS_R}\OperatorTok{-}\NormalTok{RSS_NR)}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NR}\OperatorTok{/}\DecValTok{22}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13.50234
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL P VALOR ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL P VALOR ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{PV_F_20=}\KeywordTok{pf}\NormalTok{(FC_}\DecValTok{20}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{22}\NormalTok{,}\DataTypeTok{lower.tail =}\NormalTok{ F))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.0001492921
+\end{verbatim}
+
+ESTADÍSTICA F DE LA ECUACIÓN (18):
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"DEFINImOS LA MATRIZ R"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "DEFINImOS LA MATRIZ R"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"INICIALMENTE MATRIZ IDENTIDAD DE ORDEN 2"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "INICIALMENTE MATRIZ IDENTIDAD DE ORDEN 2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{I2=}\KeywordTok{diag}\NormalTok{(}\DecValTok{2}\NormalTok{)}
+\StringTok{"la matiz R es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "la matiz R es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{R=}\KeywordTok{cbind}\NormalTok{(I2,}\OperatorTok{-}\NormalTok{I2)}
+\NormalTok{R}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3] [,4]
+## [1,]    1    0   -1    0
+## [2,]    0    1    0   -1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"el vector r es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "el vector r es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{vr=}\KeywordTok{matrix}\NormalTok{(}\DataTypeTok{nrow =} \DecValTok{2}\NormalTok{,}\DataTypeTok{ncol =} \DecValTok{1}\NormalTok{,}\DecValTok{0}\NormalTok{)}
+\NormalTok{vr}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1]
+## [1,]    0
+## [2,]    0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTADÍSTICA F DE LA ECUACIÓN (18)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTADÍSTICA F DE LA ECUACIÓN (18)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"EL VALOR CALCULADO DE LA ESTADÍSTICA DE LA ECUACIÓN (18) ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "EL VALOR CALCULADO DE LA ESTADÍSTICA DE LA ECUACIÓN (18) ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{18}\NormalTok{=((}\KeywordTok{t}\NormalTok{(R}\OperatorTok{%*%}\NormalTok{bnr}\OperatorTok{-}\NormalTok{vr)}\OperatorTok{%*%}\KeywordTok{solve}\NormalTok{(R}\OperatorTok{%*%}\NormalTok{XNRtXNR_inv}\OperatorTok{%*%}\KeywordTok{t}\NormalTok{(R))}\OperatorTok{%*%}\NormalTok{(R}\OperatorTok{%*%}\NormalTok{bnr}\OperatorTok{-}\NormalTok{vr))[}\DecValTok{1}\OperatorTok{:}\DecValTok{1}\NormalTok{]}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NR}\OperatorTok{/}\DecValTok{22}\NormalTok{)}
+\NormalTok{FC_}\DecValTok{18}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13.50234
+\end{verbatim}
+
+ESTADÍSTCA F DE LA ECUACIÓN (19)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"LA ESTADÍSTICA F DE LA ECUACIÓN (19) ES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "LA ESTADÍSTICA F DE LA ECUACIÓN (19) ES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{19}\NormalTok{=((}\KeywordTok{t}\NormalTok{(b1}\OperatorTok{-}\NormalTok{b2)}\OperatorTok{%*%}\KeywordTok{solve}\NormalTok{(X1tX1_inv}\OperatorTok{+}\NormalTok{X2tX2_inv)}\OperatorTok{%*%}\NormalTok{(b1}\OperatorTok{-}\NormalTok{b2))[}\DecValTok{1}\OperatorTok{:}\DecValTok{1}\NormalTok{]}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NR}\OperatorTok{/}\DecValTok{22}\NormalTok{)}
+\NormalTok{FC_}\DecValTok{19}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13.50234
+\end{verbatim}
+
+COMPARACIÓN DE LAS ESTADÍSTICAS ECUACIONES (18), (19) Y (20)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"TABLA PARA COMPARAR LOS VALORES"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "TABLA PARA COMPARAR LOS VALORES"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{col1=}\KeywordTok{c}\NormalTok{(}\StringTok{"ESTADÍSTICA F"}\NormalTok{,}\StringTok{"ECUACIÓN (18)"}\NormalTok{,}\StringTok{"ECUACIÓN (19)"}\NormalTok{,}\StringTok{"ECUACIÓN (20)"}\NormalTok{, }\StringTok{"P VALOR"}\NormalTok{)}
+\NormalTok{col2=}\KeywordTok{c}\NormalTok{(}\StringTok{"VALOR"}\NormalTok{, FC_}\DecValTok{18}\NormalTok{, FC_}\DecValTok{19}\NormalTok{, FC_}\DecValTok{20}\NormalTok{, PV_F_}\DecValTok{20}\NormalTok{)}
+\NormalTok{(}\DataTypeTok{TABLA_ESTAD_F=}\KeywordTok{cbind}\NormalTok{(col1,col2))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      col1            col2                  
+## [1,] "ESTADÍSTICA F" "VALOR"               
+## [2,] "ECUACIÓN (18)" "13.5023374334102"    
+## [3,] "ECUACIÓN (19)" "13.5023374334102"    
+## [4,] "ECUACIÓN (20)" "13.5023374334104"    
+## [5,] "P VALOR"       "0.000149292109898194"
+\end{verbatim}
+
+E4 ``CAMBIO ESTRUCTURAL CON VARIABLES DUMMY'' ESTIMACIÓN DEL MODELO CON
+VARIAVLES DUMMY
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_mnr_d=}\KeywordTok{lm}\NormalTok{(y}\OperatorTok{~}\NormalTok{d2}\OperatorTok{+}\NormalTok{Xt}\OperatorTok{+}\NormalTok{d2}\OperatorTok{*}\NormalTok{Xt)}
+\KeywordTok{summary}\NormalTok{(eq1_mnr_d)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = y ~ d2 + Xt + d2 * Xt)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -42.466 -12.226   1.928  11.352  49.877 
+## 
+## Coefficients:
+##               Estimate Std. Error t value Pr(>|t|)    
+## (Intercept)   3.318321  14.546705   0.228 0.821664    
+## d2          116.007186  39.970285   2.902 0.008261 ** 
+## Xt            0.078469   0.008593   9.132 6.14e-09 ***
+## d2:Xt        -0.056058   0.012364  -4.534 0.000164 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 21.73 on 22 degrees of freedom
+## Multiple R-squared:  0.8956, Adjusted R-squared:  0.8814 
+## F-statistic: 62.92 on 3 and 22 DF,  p-value: 5.893e-11
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{summary}\NormalTok{(et)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##        V1         
+##  Min.   :-62.192  
+##  1st Qu.:-20.652  
+##  Median : -9.459  
+##  Mean   :  0.000  
+##  3rd Qu.: 18.710  
+##  Max.   : 67.306
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"Suma de cuadrados de los errores del modelo no restringido con DUMMY"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Suma de cuadrados de los errores del modelo no restringido con DUMMY"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{RSS_NRD=}\KeywordTok{deviance}\NormalTok{(eq1_mnr_d))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10385.65
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"prueba de cambio estructural con variables Dymmy"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "prueba de cambio estructural con variables Dymmy"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"La estadística F de la ecuación (22) calculada"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La estadística F de la ecuación (22) calculada"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{(}\DataTypeTok{FC_22=}\NormalTok{((RSS_R}\OperatorTok{-}\NormalTok{RSS_NRD)}\OperatorTok{/}\DecValTok{2}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NRD}\OperatorTok{/}\DecValTok{22}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 13.50234
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"verificación de coeficientes"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "verificación de coeficientes"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{bnrd=}\KeywordTok{cbind}\NormalTok{(}\KeywordTok{coef}\NormalTok{(eq1_mnr_d))}
+\NormalTok{bnrd}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                     [,1]
+## (Intercept)   3.31832121
+## d2          116.00718648
+## Xt            0.07846894
+## d2:Xt        -0.05605805
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{b11nrd=bnrd[}\DecValTok{1}\NormalTok{]}
+\NormalTok{delta1=bnrd[}\DecValTok{2}\NormalTok{]}
+\NormalTok{b12nrd=b11nrd}\OperatorTok{+}\NormalTok{delta1}
+\NormalTok{b21nrd=bnrd[}\DecValTok{3}\NormalTok{]}
+\NormalTok{delta2=bnrd[}\DecValTok{4}\NormalTok{]}
+\NormalTok{b22nrd=b21nrd}\OperatorTok{+}\NormalTok{delta2}
+\StringTok{"verificación de coeficientes"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "verificación de coeficientes"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{coef1=}\KeywordTok{c}\NormalTok{(}\StringTok{"Coef.MNRD"}\NormalTok{,}\StringTok{"b1nrd"}\NormalTok{,}\StringTok{"delta1"}\NormalTok{,}\StringTok{"b1+delta1"}\NormalTok{,}\StringTok{"b2nrd"}\NormalTok{,}\StringTok{"delta2"}\NormalTok{,}\StringTok{"b2+delta2"}\NormalTok{)}
+\NormalTok{coef1}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Coef.MNRD" "b1nrd"     "delta1"    "b1+delta1" "b2nrd"     "delta2"   
+## [7] "b2+delta2"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{coef2=}\KeywordTok{c}\NormalTok{(}\StringTok{"valor"}\NormalTok{,b11nrd,delta1,b12nrd,b21nrd,delta2,b22nrd)}
+\NormalTok{coef3=}\KeywordTok{c}\NormalTok{(}\StringTok{"Coef.MNR"}\NormalTok{,}\StringTok{"b1m1"}\NormalTok{,}\StringTok{"______"}\NormalTok{,}\StringTok{"b1m2"}\NormalTok{,}\StringTok{"b2m1"}\NormalTok{,}\StringTok{"________"}\NormalTok{,}\StringTok{"b2m2"}\NormalTok{)}
+\NormalTok{coef4=}\KeywordTok{c}\NormalTok{(}\StringTok{"Valor"}\NormalTok{,bnr[}\DecValTok{1}\NormalTok{],}\StringTok{"______"}\NormalTok{,bnr[}\DecValTok{3}\NormalTok{],bnr[}\DecValTok{2}\NormalTok{],}\StringTok{"________"}\NormalTok{,bnr[}\DecValTok{4}\NormalTok{])}
+\NormalTok{t_coef=}\KeywordTok{cbind}\NormalTok{(coef1,coef2,coef3,coef4)}
+\NormalTok{t_coef}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      coef1       coef2                 coef3      coef4               
+## [1,] "Coef.MNRD" "valor"               "Coef.MNR" "Valor"             
+## [2,] "b1nrd"     "3.31832120521647"    "b1m1"     "3.31832120521676"  
+## [3,] "delta1"    "116.007186483373"    "______"   "______"            
+## [4,] "b1+delta1" "119.32550768859"     "b1m2"     "119.325507688592"  
+## [5,] "b2nrd"     "0.0784689368988357"  "b2m1"     "0.0784689368988357"
+## [6,] "delta2"    "-0.0560580502186245" "________" "________"          
+## [7,] "b2+delta2" "0.0224108866802112"  "b2m2"     "0.0224108866802111"
+\end{verbatim}
+
+E5 ``PRUEBA PARA CAMBIO EN EL INTERCEPTO O EN LA PENDIENTE'' CAMBIO SOLO
+EN EL INTERCEPTO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN EL INTERCEPTO"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN EL INTERCEPTO"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_m1_inter=}\KeywordTok{lm}\NormalTok{(Yt}\OperatorTok{~}\NormalTok{d1}\OperatorTok{+}\NormalTok{d2}\OperatorTok{+}\NormalTok{Xt}\DecValTok{-1}\NormalTok{)}
+\KeywordTok{summary}\NormalTok{(eq1_m1_inter)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Yt ~ d1 + d2 + Xt - 1)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -68.53 -16.87  -5.45  21.18  52.06 
+## 
+## Coefficients:
+##     Estimate Std. Error t value Pr(>|t|)    
+## d1 45.608261  15.183735   3.004  0.00633 ** 
+## d2 -0.147267  35.772650  -0.004  0.99675    
+## Xt  0.051393   0.008404   6.115 3.08e-06 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 29.55 on 23 degrees of freedom
+## Multiple R-squared:  0.9744, Adjusted R-squared:  0.971 
+## F-statistic: 291.3 on 3 and 23 DF,  p-value: < 2.2e-16
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_NR_INTER=}\KeywordTok{deviance}\NormalTok{(eq1_m1_inter)}
+\StringTok{"La suma de cuadrados de los errores del modelo no restringido para cambio en el intercepto es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La suma de cuadrados de los errores del modelo no restringido para cambio en el intercepto es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_NR_INTER}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 20089.51
+\end{verbatim}
+
+ESTADÍSTICA DE PRUEBA DE LA ECUACIÓN (26).. CAMBIO SOLO EN EL INTERCEPTO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTADÍSTICA F DE LA ECUACIÓN (26)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTADÍSTICA F DE LA ECUACIÓN (26)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{26}\NormalTok{=((RSS_R}\OperatorTok{-}\NormalTok{RSS_NR_INTER)}\OperatorTok{/}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NR_INTER}\OperatorTok{/}\DecValTok{23}\NormalTok{)}
+\StringTok{"el valor calculado de la estadística F de la ecuación (26) es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "el valor calculado de la estadística F de la ecuación (26) es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{26}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.485415
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PV_F_E26=}\KeywordTok{pf}\NormalTok{(FC_}\DecValTok{26}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DataTypeTok{lower.tail =}\NormalTok{ F)}
+\StringTok{"El valor p de la prueba para cambio solo en el intercepto es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El valor p de la prueba para cambio solo en el intercepto es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PV_F_E26}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.07471092
+\end{verbatim}
+
+PRUEBA PARA CAMBIO EN LA PENDIENTE CON INTERCEPTO COMÚN
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN LA PENDIENTE"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN LA PENDIENTE"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{eq1_m1_pend=}\KeywordTok{lm}\NormalTok{(Yt}\OperatorTok{~}\NormalTok{Xt1}\OperatorTok{+}\NormalTok{Xt2)}
+\KeywordTok{summary}\NormalTok{(eq1_m1_pend)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Call:
+## lm(formula = Yt ~ Xt1 + Xt2)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -60.629 -14.035  -3.582  16.294  49.217 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(>|t|)    
+## (Intercept) 18.683572  15.583059   1.199    0.243    
+## Xt1          0.070095   0.009309   7.530 1.19e-07 ***
+## Xt2          0.046069   0.004081  11.288 7.41e-11 ***
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 24.99 on 23 degrees of freedom
+## Multiple R-squared:  0.8557, Adjusted R-squared:  0.8431 
+## F-statistic: 68.17 on 2 and 23 DF,  p-value: 2.153e-10
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_NR_P=}\KeywordTok{deviance}\NormalTok{(eq1_m1_pend)}
+\StringTok{"La suma de cuadrados de los errores del modelo no restringido para cambio en la pendiente es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "La suma de cuadrados de los errores del modelo no restringido para cambio en la pendiente es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{RSS_NR_P}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14362.19
+\end{verbatim}
+
+ESTADÍSTICA F DE LA ECUACIÓN (30): CAMBIO SOLO EN LA PENDIENTE
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\StringTok{"ESTADÍSTICA F DE LA ECUACIÓN (30)"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "ESTADÍSTICA F DE LA ECUACIÓN (30)"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{30}\NormalTok{=((RSS_R}\OperatorTok{-}\NormalTok{RSS_NR_P)}\OperatorTok{/}\DecValTok{1}\NormalTok{)}\OperatorTok{/}\NormalTok{(RSS_NR_P}\OperatorTok{/}\DecValTok{23}\NormalTok{)}
+\StringTok{"el valor calculado de la estadística F de la ecuación (30) es"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "el valor calculado de la estadística F de la ecuación (30) es"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{FC_}\DecValTok{30}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 14.0472
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PV_F_E30=}\KeywordTok{pf}\NormalTok{(FC_}\DecValTok{30}\NormalTok{,}\DecValTok{1}\NormalTok{,}\DecValTok{23}\NormalTok{,}\DataTypeTok{lower.tail =}\NormalTok{ F)}
+\StringTok{"El valor p de la prueba para cambio solo en la pendiente"}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "El valor p de la prueba para cambio solo en la pendiente"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{PV_F_E30}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.001049693
+\end{verbatim}
+
+SERIES DE TIEMPO
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sxt=}\KeywordTok{ts}\NormalTok{(Xt,}\DataTypeTok{start =} \KeywordTok{c}\NormalTok{(}\DecValTok{1970}\NormalTok{),}\DataTypeTok{end =} \KeywordTok{c}\NormalTok{(}\DecValTok{1995}\NormalTok{),}\DataTypeTok{frequency =} \DecValTok{1}\NormalTok{)}
+\NormalTok{sxt}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Time Series:
+## Start = 1970 
+## End = 1995 
+## Frequency = 1 
+##  [1]  727.7  790.2  855.3  965.0 1054.2 1159.2 1273.0 1401.4 1580.1 1769.5
+## [11] 1973.2 2200.2 2347.3 2522.4 2810.0 3002.0 3187.6 3363.1 3640.8 3894.5
+## [21] 4166.8 4343.7 4613.7 4790.2 5021.7 5320.8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{plot}\NormalTok{(sxt)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{CambiosEstructurales-IngresoAhorro_files/figure-latex/unnamed-chunk-19-1.pdf}
+
+\end{document}

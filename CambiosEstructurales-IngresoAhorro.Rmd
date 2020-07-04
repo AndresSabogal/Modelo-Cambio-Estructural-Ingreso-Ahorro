@@ -1,0 +1,360 @@
+---
+title: 'Cambio Estructural Modelo Ahorro - Ingreso'
+output:
+  word_document: default
+  html_notebook: default
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+
+```{r}
+rm(list=ls())
+setwd("c:/Rprograming/CambiosEstructurales-IngresoAhorro")
+E1<-read.csv("Datos_Ingreso_Ahorro.csv",header = T,sep = ";",dec = ",")
+head(E1) # Muestra algunas filas de los datos con encabezado
+#install.packages("readxl")
+
+library(readxl) #Carga el paquete
+Datos <- read_excel("Datos_Ingreso_Ahorro.xls")
+Datos=data.frame(Datos) # Aqui se estable que Tiempo es una hoja de Excel
+attach(Datos)
+head(Datos)
+library(normtest)
+#install.packages("tinytex")
+```
+ESTIMACIÓN DEL MODELO RESTRINGIDO
+
+```{r}
+eq1=lm(Yt~Xt)
+summary(eq1)
+et=resid(eq1)
+summary(et)
+"Suma de cuadrados de los erroes del modelo de la ecuación (1)"
+(RSS_R=deviance(eq1))
+g1_hist=hist(et, seq(-66.0, 74, by=20), prob=TRUE)
+curve(dnorm(x,mean = 0,sd=31),col=1,lty=2,lwd=3,add = TRUE)
+g2_box=boxplot(et)
+jb.norm.test(et)
+g3_qq <- qqnorm(et,col="black")
+qqline(et,col="red")
+
+```
+FORMA MATRICIAL DEL MODELO RESTRINGIDO
+
+```{r}
+X=cbind(1,Datos[,3])
+y=Datos[,2]
+"El vector Xty"
+(Xty=t(X)%*%y)
+"La matriz XtX es:"
+(XtX=t(X)%*%X)
+"la matriz XtX INVERSA ES"
+(XtX_inv=solve(XtX))
+"EL ESTIMADOR b DE OLS ES"
+(b=XtX_inv%*%Xty)
+"EL yt_est ES"
+ye=X%*%b
+"LOS ERROES DE ESTIMACIÓN SON"
+et=y-ye
+"SUMAS DE CUADRADOS"
+"SUMAS DE CUADRADOS TOTALES"
+(TSS=sum((y-mean(y))^2))
+(TSS_A=t(y)%*%y-26*mean(y)^2)
+"SUMA DE CUAADRADOS EXPLICADA"
+(ESS=t(b)%*%XtX%*%b-26*mean(y)^2)
+"SUMA DE CUADRADOS DE LOS ERROES"
+(RSS=t(et)%*%et)
+
+```
+
+ESTIMACIÓN DEL MODELO NO RESTRINGIDO CON EL COMNADO lm, PARA ELLO SE DEFINESN LAS VARIABLES D1, D2, x1t y x2t. SE ESTIMA EL MODELO POR SUBMUESTRAS 
+
+```{r}
+"1. MODELO CON LAS PRIMERAS 15 OBSERVACIONES DESDE 1970 HASTA 1984"
+"LA MATRIZ DE DATOS X1"
+X1=cbind(1,Datos[1:15,3])
+y1=Datos[1:15,2]
+x1t=cbind(X1[1:15,2])
+y1t=y1[1:15]
+On1=matrix(nrow=15,ncol = 1,0)
+in1=matrix(nrow=15,ncol = 1,1)
+"Estimación del modelo 1"
+eq1_m1=lm(y1t~x1t)
+summary(eq1_m1)
+"Suma de cuadrados de los erroes del modelo 1: 1970 - 1984"
+RSS_1=deviance(eq1_m1)
+RSS_1
+"ESTIMACIÓN EN FORMA MATRICIAL"
+"La matriz X1tX1 es"
+(X1tX1=t(X1)%*%X1)
+"La matriz X1tX1 inversa es"
+(X1tX1_inv=solve(X1tX1))
+"El vector X1ty1 es"
+(X1ty1=t(X1)%*%y1)
+"El estimador OLS con la primera muestra es:"
+(b1=X1tX1_inv%*%X1ty1)
+"SUMAS DE CUADRADOS DEL MODELO 1"
+et1=y1-X1%*%b1
+"El RSS1 es"
+(RSS1=t(et1)%*%et1)
+"El ESS1"
+(ESS1=t(b1)%*%X1tX1%*%b1-15*mean(y1)^2)
+"El TSS1 es"
+(TSS1=t(y1)%*%y1-15*mean(y1)^2)
+"El TSS1 prueba es"
+(TSS1p=ESS1+RSS1)
+# aqui observamos la suma de cuadrados 
+```
+ESTIMACIÓN DEL MODELO CON LAS ULTIMAS n2 = 11 OBSERVACIONES
+
+```{r}
+"2. MODELO CON LAS ULTIMAS 11 OBSERVACIONES DESDE 1985 HASTA 1995"
+"LA MATRIZ DE DATOS X2"
+X2=cbind(1,Datos[16:26,3])
+"EL VECTOR y2"
+y2=Datos[16:26,2]
+x2t=cbind(X2[1:11,2])
+y2t=y2[1:11]
+"El vector 0 de tamanño n2 es"
+On2=matrix(nrow=11,ncol = 1,0)
+"el vector in2 es"
+in2=matrix(nrow=11,ncol = 1,1)
+"Estimación del modelo 2"
+eq1_m2=lm(y2t~x2t)
+summary(eq1_m2)
+"Suma de cuadrados de los errroes del modelo 2: 1985 - 1995"
+RSS_2=deviance(eq1_m2)
+RSS_2
+"ESTIMACIÓN EN FORMA MATRICIAL"
+"La matriz X2tX2 es"
+(X2tX2=t(X2)%*%X2)
+"La matriz X2tX2 inversa es"
+(X2tX2_inv=solve(X2tX2))
+"El vector X2ty2 es"
+(X2ty2=t(X2)%*%y2)
+"El estimador OLS con la segunda muestra es:"
+(b2=X2tX2_inv%*%X2ty2)
+"SUMAS DE CUADRADOS DEL MODELO 2"
+et2=y2-X2%*%b2
+"El RSS2 es"
+(RSS2=t(et2)%*%et2)
+"El ESS2"
+(ESS2=t(b2)%*%X2tX2%*%b2-11*mean(y2)^2)
+"El TSS2 es"
+(TSS2=t(y2)%*%y2-11*mean(y2)^2)
+"El TSS2 prueba es"
+(TSS2p=ESS2+RSS2)
+
+```
+DEFINICIÓN DE LAS VARIABLES PARA EL MODELO NO RESTRINGIDO
+
+```{r}
+"Variables D1 y D2"
+"La variable D1"
+d1=rbind(in1,On2)
+d1
+"La variable D2 es"
+d2=rbind(On1,in2)
+d2
+"La variable Xt1 es"
+Xt1=rbind(x1t,On2)
+"La variable Xt2 es"
+Xt2=rbind(On1,x2t)
+"Modelo no restringido estimado"
+eq1_mnr=lm(Yt~d1+Xt1+d2+Xt2-1)
+summary(eq1_mnr)
+"La suma de cuadrados de los erroes del Modelo no Restringido es"
+(RSS_NR=deviance(eq1_mnr))
+"Prueba de la ecuación (16)"
+(RSS_NR_16=RSS_1+RSS_2)
+```
+FORMA MATRICIAL DEL MODELO NO RESTRINGIDO
+
+```{r}
+"CONSTRUCCIÓN DE LA MATRIX XNR"
+O15=matrix(nrow=15,ncol=2,0)
+O11=matrix(nrow=11,ncol=2,0)
+A1=rbind(X1,O11)
+A2=rbind(O15,X2)
+"MATRIZ XNR"
+(XNR=cbind(A1,A2))
+
+```
+EATIMADOR OLS DEL MODELO NO RESTRINGIDO EN FORMA MATRICIAL:
+
+
+```{r}
+"LA MATRIZ XNRtXNR"
+(XNRtXNR=t(XNR)%*%XNR)
+"LA MATRIZ XNRtXNR inversa"
+(XNRtXNR_inv=solve(XNRtXNR))
+"EL VECTOR XNRty"
+(XNRty=t(XNR)%*%y)
+"EL ESTIMADOR OLS DEL MODELO NO RESTRINGIDO ES"
+(bnr=XNRtXNR_inv%*%XNRty)
+```
+SUMAS DE CUADRADOS EN EL MODELO NO RESTRINGIDO
+
+```{r}
+etnr=y-XNR%*%bnr
+"SUMA DE CUADRADOS DE ERRROES NR"
+(RSS_NR_MAT=t(etnr)%*%etnr)
+"SUMA DE CUADRADOS EXPLICADA NR"
+(ESS_NR=(t(bnr)%*%XNRtXNR%*%bnr)[1:1]-26*mean(y)^2)
+"LA SUMA TOTAL CUADRADOS NR ES"
+(TSS_NR=(t(y)%*%y)[1:1]-26*mean(y)^2)
+"PRUEBA DE SUMAS DE CUADRADOS EN EL MODELO NR"
+(TSS_NR_PRUEBA=ESS_NR+RSS_NR)
+
+```
+PRUEBA DE CAMMBIO ESTRUCTUTURAL:
+```{r}
+
+
+"ESTADÍSTICA F DE LA ECUAIOÓN (20)"
+"EL VALOR CALCULADO DE LA ESTADÍSTICA ES"
+(FC_20=(((RSS_R-RSS_NR)/2)/(RSS_NR/22)))
+"EL P VALOR ES"
+(PV_F_20=pf(FC_20,2,22,lower.tail = F))
+
+```
+ESTADÍSTICA F DE LA ECUACIÓN (18):
+
+```{r}
+"DEFINImOS LA MATRIZ R"
+"INICIALMENTE MATRIZ IDENTIDAD DE ORDEN 2"
+I2=diag(2)
+"la matiz R es"
+R=cbind(I2,-I2)
+R
+"el vector r es"
+vr=matrix(nrow = 2,ncol = 1,0)
+vr
+"ESTADÍSTICA F DE LA ECUACIÓN (18)"
+"EL VALOR CALCULADO DE LA ESTADÍSTICA DE LA ECUACIÓN (18) ES"
+FC_18=((t(R%*%bnr-vr)%*%solve(R%*%XNRtXNR_inv%*%t(R))%*%(R%*%bnr-vr))[1:1]/2)/(RSS_NR/22)
+FC_18
+
+```
+ESTADÍSTCA F DE LA ECUACIÓN (19)
+```{r}
+"LA ESTADÍSTICA F DE LA ECUACIÓN (19) ES"
+FC_19=((t(b1-b2)%*%solve(X1tX1_inv+X2tX2_inv)%*%(b1-b2))[1:1]/2)/(RSS_NR/22)
+FC_19
+
+```
+COMPARACIÓN DE LAS ESTADÍSTICAS ECUACIONES (18), (19) Y (20)
+```{r}
+"TABLA PARA COMPARAR LOS VALORES"
+col1=c("ESTADÍSTICA F","ECUACIÓN (18)","ECUACIÓN (19)","ECUACIÓN (20)", "P VALOR")
+col2=c("VALOR", FC_18, FC_19, FC_20, PV_F_20)
+(TABLA_ESTAD_F=cbind(col1,col2))
+
+
+
+```
+E4 "CAMBIO ESTRUCTURAL CON VARIABLES DUMMY"
+ESTIMACIÓN DEL MODELO CON VARIAVLES DUMMY
+
+
+```{r}
+eq1_mnr_d=lm(y~d2+Xt+d2*Xt)
+summary(eq1_mnr_d)
+summary(et)
+"Suma de cuadrados de los errores del modelo no restringido con DUMMY"
+(RSS_NRD=deviance(eq1_mnr_d))
+"prueba de cambio estructural con variables Dymmy"
+"La estadística F de la ecuación (22) calculada"
+(FC_22=((RSS_R-RSS_NRD)/2)/(RSS_NRD/22))
+"verificación de coeficientes"
+bnrd=cbind(coef(eq1_mnr_d))
+bnrd
+b11nrd=bnrd[1]
+delta1=bnrd[2]
+b12nrd=b11nrd+delta1
+b21nrd=bnrd[3]
+delta2=bnrd[4]
+b22nrd=b21nrd+delta2
+"verificación de coeficientes"
+coef1=c("Coef.MNRD","b1nrd","delta1","b1+delta1","b2nrd","delta2","b2+delta2")
+coef1
+coef2=c("valor",b11nrd,delta1,b12nrd,b21nrd,delta2,b22nrd)
+coef3=c("Coef.MNR","b1m1","______","b1m2","b2m1","________","b2m2")
+coef4=c("Valor",bnr[1],"______",bnr[3],bnr[2],"________",bnr[4])
+t_coef=cbind(coef1,coef2,coef3,coef4)
+t_coef
+
+```
+E5 "PRUEBA PARA CAMBIO EN EL INTERCEPTO O EN LA PENDIENTE"
+CAMBIO SOLO EN EL INTERCEPTO
+```{r}
+"MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN EL INTERCEPTO"
+eq1_m1_inter=lm(Yt~d1+d2+Xt-1)
+summary(eq1_m1_inter)
+RSS_NR_INTER=deviance(eq1_m1_inter)
+"La suma de cuadrados de los errores del modelo no restringido para cambio en el intercepto es"
+RSS_NR_INTER
+
+```
+ESTADÍSTICA DE PRUEBA DE LA ECUACIÓN (26).. CAMBIO SOLO EN EL INTERCEPTO
+
+```{r}
+"ESTADÍSTICA F DE LA ECUACIÓN (26)"
+FC_26=((RSS_R-RSS_NR_INTER)/1)/(RSS_NR_INTER/23)
+"el valor calculado de la estadística F de la ecuación (26) es"
+FC_26
+PV_F_E26=pf(FC_26,1,23,lower.tail = F)
+"El valor p de la prueba para cambio solo en el intercepto es"
+PV_F_E26
+
+
+
+
+```
+PRUEBA PARA CAMBIO EN LA PENDIENTE CON INTERCEPTO COMÚN
+
+
+```{r}
+"MODELO NO RESTRINGIDO PARA PROBAR QUE SÓLO HAY CAMBIO EN LA PENDIENTE"
+eq1_m1_pend=lm(Yt~Xt1+Xt2)
+summary(eq1_m1_pend)
+RSS_NR_P=deviance(eq1_m1_pend)
+"La suma de cuadrados de los errores del modelo no restringido para cambio en la pendiente es"
+RSS_NR_P
+
+```
+ESTADÍSTICA F DE LA ECUACIÓN (30): CAMBIO SOLO EN LA PENDIENTE
+
+```{r}
+"ESTADÍSTICA F DE LA ECUACIÓN (30)"
+FC_30=((RSS_R-RSS_NR_P)/1)/(RSS_NR_P/23)
+"el valor calculado de la estadística F de la ecuación (30) es"
+FC_30
+PV_F_E30=pf(FC_30,1,23,lower.tail = F)
+"El valor p de la prueba para cambio solo en la pendiente"
+PV_F_E30
+
+```
+
+SERIES DE TIEMPO
+
+```{r}
+sxt=ts(Xt,start = c(1970),end = c(1995),frequency = 1)
+sxt
+plot(sxt)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
